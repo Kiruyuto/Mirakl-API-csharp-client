@@ -1,0 +1,6 @@
+* text eol=lf
+
+*.sln text eol=lf
+
+*.cs diff=csharp
+*.lockb binary diff=lockb
