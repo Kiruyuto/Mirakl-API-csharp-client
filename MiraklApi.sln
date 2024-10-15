@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiraklApiClient", "MiraklApiClient\MiraklApiClient.csproj", "{0127C20C-6FA4-4063-B9B9-7E5702DB08A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiraklApi.Client", "MiraklApi.Client\MiraklApi.Client.csproj", "{0127C20C-6FA4-4063-B9B9-7E5702DB08A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
