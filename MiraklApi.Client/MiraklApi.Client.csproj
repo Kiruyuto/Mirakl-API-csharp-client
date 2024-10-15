@@ -1,12 +1,18 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-      <ProjectVersion>0.0.0</ProjectVersion>
+      <TargetFramework>net8.0</TargetFramework>
+      <ImplicitUsings>enable</ImplicitUsings>
+      <Nullable>enable</Nullable>
+      <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+      <PackageId>$(AssemblyName)</PackageId>
+      <Version>0.0.0</Version>
+      <Authors>Kiruyuto</Authors>
+      <Title>Mirakl API C# Client</Title>
+      <RequireLicenseAcceptance>false</RequireLicenseAcceptance>
     </PropertyGroup>
 
-    <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+      <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
 
     <ItemGroup>

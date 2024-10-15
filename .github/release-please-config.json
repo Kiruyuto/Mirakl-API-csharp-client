@@ -20,7 +20,7 @@
         {
           "type": "xml",
           "path": "/MiraklApi.Client/MiraklApi.Client.csproj",
-          "xpath": "//Project/PropertyGroup/ProjectVersion"
+          "xpath": "//Project/PropertyGroup/Version"
         }
       ]
     }
