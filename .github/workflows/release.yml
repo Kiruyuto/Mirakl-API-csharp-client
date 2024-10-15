@@ -1,0 +1,43 @@
+﻿name: 'Release Please'
+
+on:
+  push:
+    branches: [ 'master' ]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    name: 'Release Please'
+    runs-on: [ 'ubuntu-latest' ]
+    steps:
+      - name: 'Generate App Token'
+        uses: actions/create-github-app-token@v1
+        id: generate-token
+        with:
+          app-id: ${{ secrets.RELEASE_APP_ID}}
+          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+      - name: 'Run release-please'
+        uses: googleapis/release-please-action@v4
+        with:
+          token: ${{ steps.generate-token.outputs.token }}
+          config-file: .github/release-please-config.json
+          manifest-file: .github/.release-please-manifest.json
+
+  # TODO: Add a step to pack and upload the Nuget package
+  pack:
+    name: 'Pack & Upload Nuget Package'
+    runs-on: [ 'ubuntu-latest' ]
+    needs: 'release-please'
+    if: ${{ needs.release-please.outputs.release_created }}
+    steps:
+      - name: "Checkout repo"
+        uses: actions/checkout@v4
+      - name: "Setup .NET"
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.x
+      - name: "Restore dependencies"
+        run: dotnet restore
